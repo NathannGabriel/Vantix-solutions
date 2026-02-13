@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre • Vantix Solutions</title>
+
+    <style>
+        :root {
+            --neon: #22d3ee;
+            --bg: #020617;
+            --panel: #050b2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #050b2a, #020617 60%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 40px;
+            border-bottom: 1px solid #0f172a;
+        }
+
+        header a {
+            color: var(--neon);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        header a:hover {
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 40px 80px;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero span {
+            background: linear-gradient(90deg, var(--neon), #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SECTION */
+        section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 40px 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        .card {
+            background: linear-gradient(180deg, #050b2a, #020617);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #0f172a;
+            transition: 0.4s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:hover {
+            border-color: var(--neon);
+            box-shadow: 0 0 30px rgba(34, 211, 238, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--neon);
+        }
+
+        .card p {
+            color: #94a3b8;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #0f172a;
+            margin-top: auto;
+        }
+
+        /* Scroll Animation Script Fix */
+    </style>
+</head>
+
+<body>
+
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <h1 style="font-size: 1.5rem;">VANTIX SOLUTIONS</h1>
+        </a>
+        <a href="index.html">← Voltar para Início</a>
+    </header>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="hero">
+        <h1>Sobre a <span>Vantix Solutions</span></h1>
+        <p>Somos uma empresa de tecnologia focada em construir soluções digitais de alto impacto para o futuro do seu
+            negócio.</p>
+    </div>
+
+    <section id="about-content">
+        <div class="about-text">
+            <div class="card" style="margin-bottom: 40px;">
+                <p>
+                    A Vantix Solutions desenvolve softwares sob medida, sistemas inteligentes e automações para empresas
+                    de qualquer ramo.
+                </p>
+                <p>
+                    Unimos engenharia de software, inteligência artificial e design moderno para entregar produtos
+                    rápidos, seguros e escaláveis.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Missão</h3>
+                <p>Transformar negócios através da tecnologia, simplificando processos e potencializando resultados.</p>
+            </div>
+
+            <div class="card">
+                <h3>Visão</h3>
+                <p>Ser referência global em soluções digitais inteligentes, reconhecida pela inovação e excelência.</p>
+            </div>
+
+            <div class="card">
+                <h3>Valores</h3>
+                <p>Inovação constante • Qualidade técnica • Transparência total • Compromisso com o cliente</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2>Nosso Time</h2>
+        <p>Conheça as pessoas por trás da Vantix Solutions</p>
+
+        <div class="team-grid">
+
+            <div class="member-card">
+                <img src="https://via.placeholder.com/200" alt="CEO">
+                <h3>Nathan</h3>
+                <span>CEO & Fundador</span>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="https://via.placeholder.com/200" alt="Dev">
+                <h3>Felipe</h3>
+                <span>Desenvolvedora Full Stack</span>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="https://via.placeholder.com/200" alt="Designer">
+                <h3>Mateus</h3>
+                <span>UX/UI Designer</span>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Behance</a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="https://via.placeholder.com/200" alt="Marketing">
+                <h3>Angelo</h3>
+                <span>Marketing Digital</span>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <img src="https://via.placeholder.com/200" alt="Marketing">
+                <h3>Giuseph</h3>
+                <span>Marketing Digital</span>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>© 2026 Vantix Solutions. Todos os direitos reservados.</footer>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+
+        function checkScroll() {
+            const triggerBottom = window.innerHeight * 0.85;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerBottom) {
+                    section.classList.add("show");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+    </script>
+
+</body>
+
+</html>
