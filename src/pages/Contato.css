@@ -1,0 +1,20 @@
+.contato-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato-page .hero {
+  padding: 120px 40px 60px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.contato-page .hero h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--neon), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

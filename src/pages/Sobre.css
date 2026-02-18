@@ -1,0 +1,31 @@
+.sobre-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.sobre-page .hero {
+  padding: 120px 40px 80px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.sobre-page .hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.sobre-page .hero span {
+  background: linear-gradient(90deg, var(--neon), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sobre-page .hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}

@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon: #22d3ee;
+  --bg: #020617;
+  --panel: #050b2a;
+  --text-secondary: #94a3b8;
+  --border: #0f172a;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  body {
+    @apply antialiased overflow-x-hidden min-h-screen;
+    background: radial-gradient(circle at top, #050b2a, #020617 60%);
+    color: white;
+  }
+  #root {
+    @apply min-h-screen flex flex-col;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}

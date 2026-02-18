@@ -1,0 +1,25 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 120px 40px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--neon), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-section p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}

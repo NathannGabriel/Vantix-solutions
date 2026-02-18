@@ -1,0 +1,34 @@
+.seal-area {
+  display: flex;
+  justify-content: center;
+  padding: 120px 40px;
+}
+
+.seal {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #050b2a, #020617);
+  border: 2px solid var(--neon);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.35);
+}
+
+.seal span {
+  font-size: 22px;
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--neon), #6366f1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.seal p {
+  margin-top: 8px;
+  letter-spacing: 2px;
+  color: #cbd5f5;
+}
