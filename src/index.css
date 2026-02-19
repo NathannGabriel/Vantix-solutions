@@ -14,11 +14,17 @@
   * {
     @apply box-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply antialiased overflow-x-hidden min-h-screen;
     background: radial-gradient(circle at top, #050b2a, #020617 60%);
     color: white;
   }
+
   #root {
     @apply min-h-screen flex flex-col;
   }

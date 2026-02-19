@@ -31,9 +31,9 @@ const Hero = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
       >
-        <Link to="/contato" className="btn">
-          Ativar Engine
-        </Link>
+        <a href="#servicos" className="btn">
+          Entenda Nossos Serviços
+        </a>
       </motion.div>
     </motion.section>
   )
