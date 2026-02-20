@@ -29,6 +29,12 @@ const Header = () => {
           Sobre
         </Link>
         <Link
+          to="/processo-seletivo"
+          className={location.pathname === '/processo-seletivo' ? 'active' : ''}
+        >
+          Processo Seletivo
+        </Link>
+        <Link
           to="/contato"
           className={location.pathname === '/contato' ? 'active' : ''}
         >

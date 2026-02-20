@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import Contato from './pages/Contato'
+import ProcessoSeletivo from './pages/ProcessoSeletivo'
 import Chatbot from './components/Chatbot'
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/processo-seletivo" element={<ProcessoSeletivo />} />
           </Routes>
         </main>
         <Footer />
