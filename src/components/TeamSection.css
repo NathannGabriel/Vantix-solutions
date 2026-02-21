@@ -1,7 +1,9 @@
+/* Seção do carousel/grid do time – alinhada ao navbar/appbar */
 .team-section {
   max-width: 1200px;
   margin: auto;
   padding: 80px 40px;
+  scroll-margin-top: 90px; /* evita ficar escondida atrás do header ao scroll para #team */
 }
 
 .team-header {
@@ -26,7 +28,7 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 40px;
 }

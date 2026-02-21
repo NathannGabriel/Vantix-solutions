@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { IconWave, IconThink, IconArrow } from './icons/ChatIcons'
 import './Chatbot.css'
 
 const brain = [
-  { keywords: ['oi', 'ola', 'olá', 'eai', 'hey'], reply: 'Olá! 👋 Como posso ajudar você hoje?' },
+  { keywords: ['oi', 'ola', 'olá', 'eai', 'hey'], reply: 'Olá! Como posso ajudar você hoje?', icon: 'wave' },
   { keywords: ['bom dia'], reply: 'Bom dia! Em que posso ajudar?' },
   { keywords: ['boa tarde'], reply: 'Boa tarde! Como posso ajudar você?' },
   { keywords: ['boa noite'], reply: 'Boa noite! Precisa de ajuda com algum projeto?' },
@@ -55,6 +56,15 @@ const brain = [
   { keywords: ['tchau'], reply: 'Até mais!' },
 ]
 
+const renderMessageContent = (text, icon) => {
+  const parts = []
+  if (icon === 'wave') parts.push(<IconWave key="w" />)
+  if (icon === 'think') parts.push(<IconThink key="t" />)
+  if (parts.length) parts.push(' ')
+  parts.push(<span key="text">{text}</span>)
+  return parts
+}
+
 const normalize = (text) => {
   return text
     .toLowerCase()
@@ -81,6 +91,7 @@ const findBestReply = (message) => {
   const cleanMsg = normalize(message)
   let bestScore = 0
   let bestReply = null
+  let bestIcon = null
 
   brain.forEach((block) => {
     block.keywords.forEach((key) => {
@@ -88,11 +99,12 @@ const findBestReply = (message) => {
       if (s > bestScore) {
         bestScore = s
         bestReply = block.reply
+        bestIcon = block.icon || null
       }
     })
   })
 
-  return bestReply
+  return bestReply ? { text: bestReply, icon: bestIcon } : null
 }
 
 const Chatbot = () => {
@@ -106,8 +118,9 @@ const Chatbot = () => {
       setTimeout(() => {
         setMessages([
           {
-            text: 'Olá! 👋 Sou a EVA, sua assistente virtual. Como posso ajudar você hoje?',
+            text: 'Olá! Sou a EVA, sua assistente virtual. Como posso ajudar você hoje?',
             type: 'bot',
+            icon: 'wave',
           },
         ])
       }, 500)
@@ -125,13 +138,16 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, userMessage])
 
     const reply = findBestReply(inputValue)
-    const botMessage = {
-      text: reply || 'Não entendi bem 🤔 Pode reformular ou escolher um assunto como: site, sistema, orçamento, chatbot.',
-      type: 'bot',
+    const fallback = {
+      text: 'Não entendi bem. Pode reformular ou escolher um assunto como: site, sistema, orçamento, chatbot.',
+      icon: 'think',
     }
+    const botPayload = reply
+      ? { text: reply.text, type: 'bot', icon: reply.icon }
+      : { ...fallback, type: 'bot' }
 
     setTimeout(() => {
-      setMessages((prev) => [...prev, botMessage])
+      setMessages((prev) => [...prev, botPayload])
     }, 500)
 
     setInputValue('')
@@ -151,10 +167,16 @@ const Chatbot = () => {
         height: isOpen ? 380 : 48,
       }}
       transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-      onHoverStart={() => setIsOpen(true)}
-      onHoverEnd={() => setIsOpen(false)}
     >
-      <div className="chat-header">EVA</div>
+      <button
+        type="button"
+        className="chat-header w-full text-left cursor-pointer border-0 rounded-t-[18px] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-dark"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-expanded={isOpen}
+        aria-label={isOpen ? 'Fechar chat EVA' : 'Abrir chat EVA'}
+      >
+        EVA
+      </button>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -169,9 +191,9 @@ const Chatbot = () => {
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`message ${msg.type}`}
+                  className={`message ${msg.type} flex flex-wrap items-center gap-1`}
                 >
-                  {msg.text}
+                  {renderMessageContent(msg.text, msg.icon)}
                 </motion.div>
               ))}
               <div ref={messagesEndRef} />
@@ -181,15 +203,19 @@ const Chatbot = () => {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyPress}
                 placeholder="Pergunte ao núcleo..."
+                aria-label="Mensagem para EVA"
               />
               <motion.button
+                type="button"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={sendMessage}
+                aria-label="Enviar mensagem"
+                className="flex items-center justify-center text-dark"
               >
-                ➜
+                <IconArrow />
               </motion.button>
             </div>
           </motion.div>

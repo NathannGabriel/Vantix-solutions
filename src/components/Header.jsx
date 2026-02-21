@@ -10,7 +10,8 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="header"
+      className="header appbar"
+      role="banner"
     >
       <Link to="/" className="logo-link">
         <h1>VANTIX SOLUTIONS</h1>
